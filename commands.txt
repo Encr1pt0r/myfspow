@@ -1,0 +1,31 @@
+// Basic maths variable statements
+
+x = 5			
+x = x + 10
+x = x - 5
+x = x * 2
+x = x / 2
+
+// Playing with FileCollection
+
+wombats = FileCollection("wombats")
+message "The wombats collection:"
+print wombats
+
+// Now let's play with a Selector
+
+hairies = Selector(name("hairy")) 
+wombats.apply(hairies)
+wombats.apply(Selector(name("")))
+
+// Printing individual elements
+
+print wombats[0]
+print wombats[2]
+print x
+
+// Playing with loops (:
+
+print "Visiting each wombat in turn:"
+for w in wombats: print wombats[w]
+
