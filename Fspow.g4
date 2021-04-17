@@ -2,13 +2,91 @@ grammar Fspow;
 
 prog:   stat+ ;
 
-// labelling alternatives creates extra visitor methods
-// the labels migh clash with rule names, so I make them unique
+stat:
+    assignment  # statAssignment 
+    |   
+    fcApplySelector # statApplySelector
+    |
+    prints     # print
+    |
+    loop        # statLoop
+    ;
 
-// I left it empty for you so you can be as creative as possible
-stat;
+assignment :
+    ID '=' expression
+    ;
 
+fcApplySelector:
+    ID '.apply(' expression ')'
+    ;
 
+expression : 
+    variable              # exprID
+    |
+    newSelector     # exprNewSelector 
+    |
+    newFileCollection   # exprNewFileCollection
+    |
+    numeric         # exprNumeric
+    |
+    length           # exprlength
+    ;
+
+variable : ID;
+
+newSelector :
+    'Selector(' selectorType (',' selectorType)* ')'
+    ;
+
+selectorType :
+    'name(' STRING ')'
+    |
+    'size(' STRING ')'
+    ;
+
+newFileCollection: 
+    'FileCollection(' rootSpecifier ')'
+    ;
+
+rootSpecifier: 
+    STRING
+    ;
+    
+numeric : 
+    INTEGER (operator INTEGER)*
+    |
+    ID (operator INTEGER)*
+    |
+    ID (operator ID)*
+    ;
+
+operator:
+    '+'
+    |
+    '-'
+    |
+    '*'
+    |
+    '/'
+    ;
+
+prints:
+    'print ' ID
+    |
+    'print ' ID '[' INTEGER ']'
+    |
+    'print ' ID '[' ID ']'
+    |
+    'print ' STRING
+    ;
+
+loop:
+    'for ' ID ' in range(' expression '):' stat*
+    ;
+
+length:
+    ID '.length'
+    ;
 
 ID: [a-zA-Z][a-zA-Z0-9]* ;
 STRING: '"'.*?'"' 
