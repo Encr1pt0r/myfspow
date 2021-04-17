@@ -1,1 +1,4 @@
-This is the version of fspow to be used in the workshop on defining a 'for' loop
+Welcome to MyFspow built by Kevin Mbuluko
+
+Main syntax:
+
