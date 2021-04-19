@@ -5,6 +5,7 @@ x = x + 10
 x = x - 5
 x = x * 2
 x = x / 2
+x = x + 5 - 2
 
 // Playing with FileCollection
 

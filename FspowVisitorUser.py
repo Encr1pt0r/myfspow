@@ -188,5 +188,11 @@ class FspowVisitorUser(FspowVisitor):
         for i in range(ctx.getChildCount()):
             print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
+
+    # Visit a parse tree produced by FspowParser#label.
+    def visitLabel(self, ctx:FspowParser.LabelContext):
+        for i in range(ctx.getChildCount()):
+            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        return self.visitChildren(ctx)
         
 del FspowParser
