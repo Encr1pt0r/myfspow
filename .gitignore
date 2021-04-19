@@ -15,8 +15,6 @@ repertoire/__pycache__/FSObject.cpython-38.pyc
 repertoire/__pycache__/Selector.cpython-37.pyc
 repertoire/__pycache__/Selector.cpython-38.pyc
 .DS_Store
-Fspow.interp
-Fspow.tokens
 antlr4/__pycache__/__init__.cpython-38.pyc
 antlr4/__pycache__/BufferedTokenStream.cpython-38.pyc
 antlr4/__pycache__/CommonTokenFactory.cpython-38.pyc
@@ -66,9 +64,3 @@ antlr4/tree/__pycache__/RuleTagToken.cpython-38.pyc
 antlr4/tree/__pycache__/TokenTagToken.cpython-38.pyc
 antlr4/tree/__pycache__/Tree.cpython-38.pyc
 antlr4/tree/__pycache__/Trees.cpython-38.pyc
-FspowLexer.interp
-FspowLexer.py
-FspowLexer.tokens
-FspowListener.py
-FspowVisitor.py
-FspowParser.py
