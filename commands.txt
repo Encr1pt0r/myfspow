@@ -28,5 +28,5 @@ print x
 // Playing with loops (:
 
 print "Visiting each wombat in turn:"
-for w in range(wombats): print wombats[w]
+for w in range(wombats.length()): print wombats[w]
 
