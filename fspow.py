@@ -42,7 +42,7 @@ def main(argv):
     tree = parser.prog()
     
     # print the parse tree
-    print(TreesUser.toStringTree(tree, None, parser))
+    #print(TreesUser.toStringTree(tree, None, parser))
 #     print(TreesUser.PrettyPrint(tree, None, parser))
 
     visitor = FspowVisitorUser()

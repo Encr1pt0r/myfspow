@@ -11,45 +11,54 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32")
-        buf.write("\u0080\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\33")
+        buf.write("\u0090\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\6\2$\n\2\r\2\16")
         buf.write("\2%\3\3\3\3\3\3\3\3\5\3,\n\3\3\4\3\4\3\4\3\4\3\5\3\5\3")
         buf.write("\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\5\6<\n\6\3\7\3\7\3\b\3")
         buf.write("\b\3\b\3\b\7\bD\n\b\f\b\16\bG\13\b\3\b\3\b\3\t\3\t\3\t")
         buf.write("\3\t\3\t\3\t\5\tQ\n\t\3\n\3\n\3\n\3\n\3\13\3\13\3\f\3")
-        buf.write("\f\3\f\3\f\7\f]\n\f\f\f\16\f`\13\f\3\r\3\r\3\16\3\16\3")
-        buf.write("\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16n\n\16\3\17")
-        buf.write("\3\17\3\20\3\20\3\20\3\20\3\20\3\20\7\20x\n\20\f\20\16")
-        buf.write("\20{\13\20\3\21\3\21\3\21\3\21\2\2\22\2\4\6\b\n\f\16\20")
-        buf.write("\22\24\26\30\32\34\36 \2\4\3\2\13\16\4\2\26\26\32\32\2")
-        buf.write("}\2#\3\2\2\2\4+\3\2\2\2\6-\3\2\2\2\b\61\3\2\2\2\n;\3\2")
+        buf.write("\f\3\r\3\r\3\16\3\16\3\16\3\16\3\17\3\17\3\20\3\20\3\20")
+        buf.write("\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20")
+        buf.write("\3\20\3\20\5\20s\n\20\3\21\3\21\3\21\3\21\3\21\3\21\7")
+        buf.write("\21{\n\21\f\21\16\21~\13\21\3\21\3\21\3\21\3\21\3\21\3")
+        buf.write("\21\3\21\3\21\7\21\u0088\n\21\f\21\16\21\u008b\13\21\3")
+        buf.write("\21\5\21\u008e\n\21\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24")
+        buf.write("\26\30\32\34\36 \2\4\3\2\13\16\4\2\27\27\33\33\2\u0090")
+        buf.write("\2#\3\2\2\2\4+\3\2\2\2\6-\3\2\2\2\b\61\3\2\2\2\n;\3\2")
         buf.write("\2\2\f=\3\2\2\2\16?\3\2\2\2\20P\3\2\2\2\22R\3\2\2\2\24")
-        buf.write("V\3\2\2\2\26X\3\2\2\2\30a\3\2\2\2\32m\3\2\2\2\34o\3\2")
-        buf.write("\2\2\36q\3\2\2\2 |\3\2\2\2\"$\5\4\3\2#\"\3\2\2\2$%\3\2")
-        buf.write("\2\2%#\3\2\2\2%&\3\2\2\2&\3\3\2\2\2\',\5\6\4\2(,\5\b\5")
-        buf.write("\2),\5\32\16\2*,\5\36\20\2+\'\3\2\2\2+(\3\2\2\2+)\3\2")
-        buf.write("\2\2+*\3\2\2\2,\5\3\2\2\2-.\7\26\2\2./\7\3\2\2/\60\5\n")
-        buf.write("\6\2\60\7\3\2\2\2\61\62\7\26\2\2\62\63\7\4\2\2\63\64\5")
-        buf.write("\n\6\2\64\65\7\5\2\2\65\t\3\2\2\2\66<\5\f\7\2\67<\5\16")
-        buf.write("\b\28<\5\22\n\29<\5\26\f\2:<\5 \21\2;\66\3\2\2\2;\67\3")
-        buf.write("\2\2\2;8\3\2\2\2;9\3\2\2\2;:\3\2\2\2<\13\3\2\2\2=>\7\26")
-        buf.write("\2\2>\r\3\2\2\2?@\7\6\2\2@E\5\20\t\2AB\7\7\2\2BD\5\20")
-        buf.write("\t\2CA\3\2\2\2DG\3\2\2\2EC\3\2\2\2EF\3\2\2\2FH\3\2\2\2")
-        buf.write("GE\3\2\2\2HI\7\5\2\2I\17\3\2\2\2JK\7\b\2\2KL\7\27\2\2")
-        buf.write("LQ\7\5\2\2MN\7\t\2\2NO\7\27\2\2OQ\7\5\2\2PJ\3\2\2\2PM")
-        buf.write("\3\2\2\2Q\21\3\2\2\2RS\7\n\2\2ST\5\24\13\2TU\7\5\2\2U")
-        buf.write("\23\3\2\2\2VW\7\27\2\2W\25\3\2\2\2X^\5\34\17\2YZ\5\30")
-        buf.write("\r\2Z[\5\34\17\2[]\3\2\2\2\\Y\3\2\2\2]`\3\2\2\2^\\\3\2")
-        buf.write("\2\2^_\3\2\2\2_\27\3\2\2\2`^\3\2\2\2ab\t\2\2\2b\31\3\2")
-        buf.write("\2\2cd\7\17\2\2dn\7\26\2\2ef\7\17\2\2fg\7\26\2\2gh\7\20")
-        buf.write("\2\2hi\5\34\17\2ij\7\21\2\2jn\3\2\2\2kl\7\17\2\2ln\7\27")
-        buf.write("\2\2mc\3\2\2\2me\3\2\2\2mk\3\2\2\2n\33\3\2\2\2op\t\3\2")
-        buf.write("\2p\35\3\2\2\2qr\7\22\2\2rs\7\26\2\2st\7\23\2\2tu\5\n")
-        buf.write("\6\2uy\7\24\2\2vx\5\4\3\2wv\3\2\2\2x{\3\2\2\2yw\3\2\2")
-        buf.write("\2yz\3\2\2\2z\37\3\2\2\2{y\3\2\2\2|}\7\26\2\2}~\7\25\2")
-        buf.write("\2~!\3\2\2\2\n%+;EP^my")
+        buf.write("V\3\2\2\2\26X\3\2\2\2\30Z\3\2\2\2\32\\\3\2\2\2\34`\3\2")
+        buf.write("\2\2\36r\3\2\2\2 \u008d\3\2\2\2\"$\5\4\3\2#\"\3\2\2\2")
+        buf.write("$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\3\3\2\2\2\',\5\6\4\2(")
+        buf.write(",\5\b\5\2),\5\36\20\2*,\5 \21\2+\'\3\2\2\2+(\3\2\2\2+")
+        buf.write(")\3\2\2\2+*\3\2\2\2,\5\3\2\2\2-.\7\27\2\2./\7\3\2\2/\60")
+        buf.write("\5\n\6\2\60\7\3\2\2\2\61\62\7\27\2\2\62\63\7\4\2\2\63")
+        buf.write("\64\5\n\6\2\64\65\7\5\2\2\65\t\3\2\2\2\66<\5\f\7\2\67")
+        buf.write("<\5\16\b\28<\5\22\n\29<\5\26\f\2:<\5\32\16\2;\66\3\2\2")
+        buf.write("\2;\67\3\2\2\2;8\3\2\2\2;9\3\2\2\2;:\3\2\2\2<\13\3\2\2")
+        buf.write("\2=>\7\27\2\2>\r\3\2\2\2?@\7\6\2\2@E\5\20\t\2AB\7\7\2")
+        buf.write("\2BD\5\20\t\2CA\3\2\2\2DG\3\2\2\2EC\3\2\2\2EF\3\2\2\2")
+        buf.write("FH\3\2\2\2GE\3\2\2\2HI\7\5\2\2I\17\3\2\2\2JK\7\b\2\2K")
+        buf.write("L\7\30\2\2LQ\7\5\2\2MN\7\t\2\2NO\7\30\2\2OQ\7\5\2\2PJ")
+        buf.write("\3\2\2\2PM\3\2\2\2Q\21\3\2\2\2RS\7\n\2\2ST\5\24\13\2T")
+        buf.write("U\7\5\2\2U\23\3\2\2\2VW\7\30\2\2W\25\3\2\2\2XY\5\34\17")
+        buf.write("\2Y\27\3\2\2\2Z[\t\2\2\2[\31\3\2\2\2\\]\7\17\2\2]^\7\27")
+        buf.write("\2\2^_\7\5\2\2_\33\3\2\2\2`a\t\3\2\2a\35\3\2\2\2bc\7\20")
+        buf.write("\2\2cs\7\27\2\2de\7\20\2\2ef\7\27\2\2fg\7\21\2\2gh\7\27")
+        buf.write("\2\2hs\7\22\2\2ij\7\20\2\2jk\7\27\2\2kl\7\21\2\2lm\7\33")
+        buf.write("\2\2ms\7\22\2\2no\7\20\2\2os\7\30\2\2pq\7\20\2\2qs\5\32")
+        buf.write("\16\2rb\3\2\2\2rd\3\2\2\2ri\3\2\2\2rn\3\2\2\2rp\3\2\2")
+        buf.write("\2s\37\3\2\2\2tu\7\23\2\2uv\7\27\2\2vw\7\24\2\2wx\5\32")
+        buf.write("\16\2x|\7\25\2\2y{\5\4\3\2zy\3\2\2\2{~\3\2\2\2|z\3\2\2")
+        buf.write("\2|}\3\2\2\2}\177\3\2\2\2~|\3\2\2\2\177\u0080\7\26\2\2")
+        buf.write("\u0080\u008e\3\2\2\2\u0081\u0082\7\23\2\2\u0082\u0083")
+        buf.write("\7\27\2\2\u0083\u0084\7\24\2\2\u0084\u0085\7\33\2\2\u0085")
+        buf.write("\u0089\7\25\2\2\u0086\u0088\5\4\3\2\u0087\u0086\3\2\2")
+        buf.write("\2\u0088\u008b\3\2\2\2\u0089\u0087\3\2\2\2\u0089\u008a")
+        buf.write("\3\2\2\2\u008a\u008c\3\2\2\2\u008b\u0089\3\2\2\2\u008c")
+        buf.write("\u008e\7\26\2\2\u008dt\3\2\2\2\u008d\u0081\3\2\2\2\u008e")
+        buf.write("!\3\2\2\2\13%+;EPr|\u0089\u008d")
         return buf.getvalue()
 
 
@@ -65,15 +74,15 @@ class FspowParser ( Parser ):
 
     literalNames = [ "<INVALID>", "'='", "'.apply('", "')'", "'Selector('", 
                      "','", "'name('", "'size('", "'FileCollection('", "'+'", 
-                     "'-'", "'*'", "'/'", "'print '", "'['", "']'", "'for '", 
-                     "' in range('", "'):'", "'.length()'" ]
+                     "'-'", "'*'", "'/'", "'len('", "'print '", "'['", "']'", 
+                     "'for '", "' in range('", "') {'", "'}'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "ID", "STRING", "WS", "COMMENT", "INTEGER" ]
+                      "<INVALID>", "ID", "STRING", "WS", "COMMENT", "INTEGER" ]
 
     RULE_prog = 0
     RULE_stat = 1
@@ -87,15 +96,15 @@ class FspowParser ( Parser ):
     RULE_rootSpecifier = 9
     RULE_numeric = 10
     RULE_operator = 11
-    RULE_prints = 12
+    RULE_length = 12
     RULE_label = 13
-    RULE_loop = 14
-    RULE_length = 15
+    RULE_prints = 14
+    RULE_loop = 15
 
     ruleNames =  [ "prog", "stat", "assignment", "fcApplySelector", "expression", 
                    "variable", "newSelector", "selectorType", "newFileCollection", 
-                   "rootSpecifier", "numeric", "operator", "prints", "label", 
-                   "loop", "length" ]
+                   "rootSpecifier", "numeric", "operator", "length", "label", 
+                   "prints", "loop" ]
 
     EOF = Token.EOF
     T__0=1
@@ -117,11 +126,12 @@ class FspowParser ( Parser ):
     T__16=17
     T__17=18
     T__18=19
-    ID=20
-    STRING=21
-    WS=22
-    COMMENT=23
-    INTEGER=24
+    T__19=20
+    ID=21
+    STRING=22
+    WS=23
+    COMMENT=24
+    INTEGER=25
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -182,7 +192,7 @@ class FspowParser ( Parser ):
                 self.state = 35 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__12) | (1 << FspowParser.T__15) | (1 << FspowParser.ID))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__13) | (1 << FspowParser.T__16) | (1 << FspowParser.ID))) != 0)):
                     break
 
         except RecognitionException as re:
@@ -955,18 +965,8 @@ class FspowParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def label(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(FspowParser.LabelContext)
-            else:
-                return self.getTypedRuleContext(FspowParser.LabelContext,i)
-
-
-        def operator(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(FspowParser.OperatorContext)
-            else:
-                return self.getTypedRuleContext(FspowParser.OperatorContext,i)
+        def label(self):
+            return self.getTypedRuleContext(FspowParser.LabelContext,0)
 
 
         def getRuleIndex(self):
@@ -993,23 +993,10 @@ class FspowParser ( Parser ):
 
         localctx = FspowParser.NumericContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_numeric)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 86
             self.label()
-            self.state = 92
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__8) | (1 << FspowParser.T__9) | (1 << FspowParser.T__10) | (1 << FspowParser.T__11))) != 0):
-                self.state = 87
-                self.operator()
-                self.state = 88
-                self.label()
-                self.state = 94
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1054,7 +1041,7 @@ class FspowParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 95
+            self.state = 88
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__8) | (1 << FspowParser.T__9) | (1 << FspowParser.T__10) | (1 << FspowParser.T__11))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -1070,7 +1057,7 @@ class FspowParser ( Parser ):
         return localctx
 
 
-    class PrintsContext(ParserRuleContext):
+    class LengthContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -1080,72 +1067,38 @@ class FspowParser ( Parser ):
         def ID(self):
             return self.getToken(FspowParser.ID, 0)
 
-        def label(self):
-            return self.getTypedRuleContext(FspowParser.LabelContext,0)
-
-
-        def STRING(self):
-            return self.getToken(FspowParser.STRING, 0)
-
         def getRuleIndex(self):
-            return FspowParser.RULE_prints
+            return FspowParser.RULE_length
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPrints" ):
-                listener.enterPrints(self)
+            if hasattr( listener, "enterLength" ):
+                listener.enterLength(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPrints" ):
-                listener.exitPrints(self)
+            if hasattr( listener, "exitLength" ):
+                listener.exitLength(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitPrints" ):
-                return visitor.visitPrints(self)
+            if hasattr( visitor, "visitLength" ):
+                return visitor.visitLength(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def prints(self):
+    def length(self):
 
-        localctx = FspowParser.PrintsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_prints)
+        localctx = FspowParser.LengthContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_length)
         try:
-            self.state = 107
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
-            if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 97
-                self.match(FspowParser.T__12)
-                self.state = 98
-                self.match(FspowParser.ID)
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 99
-                self.match(FspowParser.T__12)
-                self.state = 100
-                self.match(FspowParser.ID)
-                self.state = 101
-                self.match(FspowParser.T__13)
-                self.state = 102
-                self.label()
-                self.state = 103
-                self.match(FspowParser.T__14)
-                pass
-
-            elif la_ == 3:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 105
-                self.match(FspowParser.T__12)
-                self.state = 106
-                self.match(FspowParser.STRING)
-                pass
-
-
+            self.enterOuterAlt(localctx, 1)
+            self.state = 90
+            self.match(FspowParser.T__12)
+            self.state = 91
+            self.match(FspowParser.ID)
+            self.state = 92
+            self.match(FspowParser.T__2)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1195,13 +1148,126 @@ class FspowParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 109
+            self.state = 94
             _la = self._input.LA(1)
             if not(_la==FspowParser.ID or _la==FspowParser.INTEGER):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class PrintsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self, i:int=None):
+            if i is None:
+                return self.getTokens(FspowParser.ID)
+            else:
+                return self.getToken(FspowParser.ID, i)
+
+        def INTEGER(self):
+            return self.getToken(FspowParser.INTEGER, 0)
+
+        def STRING(self):
+            return self.getToken(FspowParser.STRING, 0)
+
+        def length(self):
+            return self.getTypedRuleContext(FspowParser.LengthContext,0)
+
+
+        def getRuleIndex(self):
+            return FspowParser.RULE_prints
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrints" ):
+                listener.enterPrints(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrints" ):
+                listener.exitPrints(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrints" ):
+                return visitor.visitPrints(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def prints(self):
+
+        localctx = FspowParser.PrintsContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 28, self.RULE_prints)
+        try:
+            self.state = 112
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 96
+                self.match(FspowParser.T__13)
+                self.state = 97
+                self.match(FspowParser.ID)
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 98
+                self.match(FspowParser.T__13)
+                self.state = 99
+                self.match(FspowParser.ID)
+                self.state = 100
+                self.match(FspowParser.T__14)
+                self.state = 101
+                self.match(FspowParser.ID)
+                self.state = 102
+                self.match(FspowParser.T__15)
+                pass
+
+            elif la_ == 3:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 103
+                self.match(FspowParser.T__13)
+                self.state = 104
+                self.match(FspowParser.ID)
+                self.state = 105
+                self.match(FspowParser.T__14)
+                self.state = 106
+                self.match(FspowParser.INTEGER)
+                self.state = 107
+                self.match(FspowParser.T__15)
+                pass
+
+            elif la_ == 4:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 108
+                self.match(FspowParser.T__13)
+                self.state = 109
+                self.match(FspowParser.STRING)
+                pass
+
+            elif la_ == 5:
+                self.enterOuterAlt(localctx, 5)
+                self.state = 110
+                self.match(FspowParser.T__13)
+                self.state = 111
+                self.length()
+                pass
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1221,8 +1287,8 @@ class FspowParser ( Parser ):
         def ID(self):
             return self.getToken(FspowParser.ID, 0)
 
-        def expression(self):
-            return self.getTypedRuleContext(FspowParser.ExpressionContext,0)
+        def length(self):
+            return self.getTypedRuleContext(FspowParser.LengthContext,0)
 
 
         def stat(self, i:int=None):
@@ -1231,6 +1297,9 @@ class FspowParser ( Parser ):
             else:
                 return self.getTypedRuleContext(FspowParser.StatContext,i)
 
+
+        def INTEGER(self):
+            return self.getToken(FspowParser.INTEGER, 0)
 
         def getRuleIndex(self):
             return FspowParser.RULE_loop
@@ -1255,79 +1324,65 @@ class FspowParser ( Parser ):
     def loop(self):
 
         localctx = FspowParser.LoopContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_loop)
+        self.enterRule(localctx, 30, self.RULE_loop)
+        self._la = 0 # Token type
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 111
-            self.match(FspowParser.T__15)
-            self.state = 112
-            self.match(FspowParser.ID)
-            self.state = 113
-            self.match(FspowParser.T__16)
-            self.state = 114
-            self.expression()
-            self.state = 115
-            self.match(FspowParser.T__17)
-            self.state = 119
+            self.state = 139
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
-            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
-                if _alt==1:
-                    self.state = 116
-                    self.stat() 
-                self.state = 121
+            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 114
+                self.match(FspowParser.T__16)
+                self.state = 115
+                self.match(FspowParser.ID)
+                self.state = 116
+                self.match(FspowParser.T__17)
+                self.state = 117
+                self.length()
+                self.state = 118
+                self.match(FspowParser.T__18)
+                self.state = 122
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,7,self._ctx)
+                _la = self._input.LA(1)
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__13) | (1 << FspowParser.T__16) | (1 << FspowParser.ID))) != 0):
+                    self.state = 119
+                    self.stat()
+                    self.state = 124
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
 
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
+                self.state = 125
+                self.match(FspowParser.T__19)
+                pass
 
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 127
+                self.match(FspowParser.T__16)
+                self.state = 128
+                self.match(FspowParser.ID)
+                self.state = 129
+                self.match(FspowParser.T__17)
+                self.state = 130
+                self.match(FspowParser.INTEGER)
+                self.state = 131
+                self.match(FspowParser.T__18)
+                self.state = 135
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << FspowParser.T__13) | (1 << FspowParser.T__16) | (1 << FspowParser.ID))) != 0):
+                    self.state = 132
+                    self.stat()
+                    self.state = 137
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
 
-    class LengthContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def ID(self):
-            return self.getToken(FspowParser.ID, 0)
-
-        def getRuleIndex(self):
-            return FspowParser.RULE_length
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterLength" ):
-                listener.enterLength(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitLength" ):
-                listener.exitLength(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLength" ):
-                return visitor.visitLength(self)
-            else:
-                return visitor.visitChildren(self)
-
-
+                self.state = 138
+                self.match(FspowParser.T__19)
+                pass
 
 
-    def length(self):
-
-        localctx = FspowParser.LengthContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_length)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 122
-            self.match(FspowParser.ID)
-            self.state = 123
-            self.match(FspowParser.T__18)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

@@ -33,16 +33,16 @@ class FspowVisitorUser(FspowVisitor):
         if identifier in self.variablesTable:
             return self.variablesTable[identifier]
         else:
-            print("Error: identifier", identifier, "not found")
+            print("retrieveVariable: identifier", identifier, "not found")
             return None
 
-        # Visit a parse tree produced by FspowParser#prog.
+            # Visit a parse tree produced by FspowParser#prog.
     def visitProg(self, ctx:FspowParser.ProgContext):
         """
         One child: the stat line
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -51,8 +51,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: Assignment command (x = 5)
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -61,8 +61,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: wombats.apply(Selector())
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -71,8 +71,10 @@ class FspowVisitorUser(FspowVisitor):
         """
         one child   :   print statement
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+
+        #print(ctx.getChild(0).getText())
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -81,23 +83,27 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: for ID in range( expression ):
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by FspowParser#assignment.
     def visitAssignment(self, ctx:FspowParser.AssignmentContext):
         """
-        Minimum 3 chidren:
+        Minimum 3 children:
             0   :   variable
             1   :   '='
-            2   :   label (INTEGER or ID), FileCollection()
-            +   :   Chilren 1 and 2 again
+            2   :   expression
+            *   :   Chilren 1 and 2 again
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+
+        ID = ctx.getChild(0).getText()
+        value = self.visit(ctx.getChild(2))
+        self.variablesTable[ID] = value
+        return True # for now
 
 
     # Visit a parse tree produced by FspowParser#fcApplySelector.
@@ -109,9 +115,19 @@ class FspowVisitorUser(FspowVisitor):
             2   :   expression
             3   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+
+#         todo: use retrieveVariable
+        fileCollectionIdentifier = str(ctx.getChild(0))
+        if fileCollectionIdentifier in self.variablesTable:
+            # apply selector
+            selector = self.visit(ctx.getChild(2))
+            if selector != None:
+                self.variablesTable[fileCollectionIdentifier].apply(selector)
+        else:
+            print("visitFcApplySelector: File collection", fileCollectionIdentifier, "not found")
+#         for i in range(ctx.getChildCount()):
+#             print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        return True
 
 
     # Visit a parse tree produced by FspowParser#exprID.
@@ -119,8 +135,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: ID
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -129,8 +145,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: new Selector statment
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -142,8 +158,8 @@ class FspowVisitorUser(FspowVisitor):
             1   :   ID
             2   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -152,8 +168,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child   :   assignment with out the '='
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -162,8 +178,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: 'ID.length()'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -172,8 +188,16 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child: ID
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+
+        identifier = ctx.getChild(0).getText()
+        if identifier in self.variablesTable:
+            return self.variablesTable[identifier]
+        else:
+            print("visitVariable: variable with identifier %s not found" % (identifier))
+            return None
+            
         return self.visitChildren(ctx)
 
 
@@ -187,8 +211,8 @@ class FspowVisitorUser(FspowVisitor):
             3+  :   selectorType*
             2   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -200,8 +224,8 @@ class FspowVisitorUser(FspowVisitor):
             1   :   STRING
             2   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -210,12 +234,17 @@ class FspowVisitorUser(FspowVisitor):
         """
         Children:
             0   :   'FileCollection('
-            1   :   ID
+            1   :   root specifier
             2   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+
+        rootName = str(self.visitRootSpecifier(ctx.getChild(1)))
+        fc = FileCollection(rootName)
+        # print(fc.list())
+        return fc
+         
 
 
     # Visit a parse tree produced by FspowParser#rootSpecifier.
@@ -223,9 +252,11 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child   :   ID
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        
+        retval = ctx.getChild(0)
+        return retval
 
 
     # Visit a parse tree produced by FspowParser#numeric.
@@ -236,9 +267,13 @@ class FspowVisitorUser(FspowVisitor):
             +   :   operator
             +   :   label 
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+        numeric = ctx.getChild(0).getText()
+        return numeric
+        
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        
+        
 
 
     # Visit a parse tree produced by FspowParser#operator.
@@ -246,8 +281,8 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child   :   operator ('+', '-', '*', '/')
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -262,14 +297,79 @@ class FspowVisitorUser(FspowVisitor):
             0   :   'print'
             1   :   ID
 
-        Type C: print womabats[x]
+        Type C: print wombats[x]
             0   :   'print'
-            1   :   '['
-            2   :   label (INTEGER or ID)
-            3   :   ']'
+            1   :   fc_name
+            2   :   '['
+            3   :   index_name (INTEGER or ID)
+            4   :   ']'
+
+        Type D: print len(wombats)
+            0   :   'print '
+            1   :   'len(' ID ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        
+        if ctx.getChildCount() == 2:
+            theMessage = str(ctx.getChild(1))
+            meep = self.visit(ctx.getChild(1))
+            if type(meep) is int:
+                # print len(ID)
+                print(meep)
+            else:
+                if theMessage in self.variablesTable:
+                    # print ID
+                    ID = self.retrieveVariable(theMessage)
+                    if type(ID) is str:
+                        print(ID)
+                    elif type(ID) is int:
+                        print(ID)
+                    elif type(ID) is FileCollection:
+                        print(ID.list())         
+                else:
+                    # print STRING
+                    print(theMessage)
+        elif ctx.getChildCount() == 5:
+            # print wombats[ID]
+
+            # Strings taken from statment
+            fc_name = str(ctx.getChild(1))
+            index_name = str(ctx.getChild(3))
+
+            # retrive FileCollection
+            fc = self.retrieveVariable(fc_name)
+
+            # Decision making between variable or integer
+            if fc_name in self.variablesTable:
+                if index_name in self.variablesTable:
+                    # If it is a variable
+                    index = self.retrieveVariable(index_name)
+                    if index == None:
+                        print("visitPrints: index out of bounds")
+                    else:
+                        result = fc.__getitem__(int(index))
+                        print(result)
+                else:
+                    # If it is a integer
+                    #print(index_name)
+
+                    try:
+                        result = fc.__getitem__(int(index_name))
+                        if result == None:
+                            print("visitPrints: index out of bounds")
+                        else:
+                            print(result)
+                    except ValueError:
+                        index = self.retrieveVariable(index_name)
+                        if index == None:
+                            print("visitPrints: index out of bounds")
+                        else:
+                            result = fc.__getitem__(int(index))
+                            print(result)
+            else:
+                print("visitPrints: File collection", fc, "not found")
+
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
 
@@ -280,24 +380,70 @@ class FspowVisitorUser(FspowVisitor):
             0   :   'for'
             1   :   ID
             2   :   ' in range('
-            3   :   ID
+            3   :   length or INTEGER
             4   :   '):'
             5   :   stat*
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+
+        index = str(ctx.getChild(1))
+        curIndex = int(self.retrieveVariable(index))
+        condition = self.visit(ctx.getChild(3))
+
+        # print(curIndex)
+        # print(type(condition))
+
+        # If index don't exist, make a new one starting from 0
+        # if index in self.variablesTable:
+        #     print("Creating new variable called " + index)
+        #     self.variablesTable[index] = 0
+        #     curIndex = self.retrieveVariable(index)
+
+        # If index is a variable begin to loop
+        if index in self.variablesTable:
+            # Visit children in loop
+            f = 5
+            for f in range(ctx.getChildCount()):
+                self.visit(ctx.getChild(f))
+
+            # Update loop
+            self.variablesTable[index] = curIndex + 1
+
+            # Recurse until length
+            length = condition
+            if curIndex < length-1:
+                self.visitLoop(ctx)
+            else:
+                # Returns variable back to normal at the end
+                self.variablesTable[index] = curIndex - length + 1
+        else:
+            # else error thrown
+            print("visitLoop: Please assign a numeric to loop")
+
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+    
+        return True
 
 
     # Visit a parse tree produced by FspowParser#length.
     def visitLength(self, ctx:FspowParser.LengthContext):
         """
         Children:
-            0   :   ID
-            1   :   '.length()'
+            0   :   'len('
+            1   :   ID
+            2   :   ')'
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+        identifier = ctx.getChild(1).getText()
+        
+        if identifier in self.variablesTable:
+            ID = self.retrieveVariable(identifier)
+            return ID.length()
+        else:
+            print("visitLength: variable with identifier %s not found" % (identifier))
+            return None
+
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by FspowParser#label.
@@ -305,8 +451,9 @@ class FspowVisitorUser(FspowVisitor):
         """
         One child   :   label (INTEGER or ID)
         """
-        for i in range(ctx.getChildCount()):
-            print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
+
+        # for i in range(ctx.getChildCount()):
+        #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
         return self.visitChildren(ctx)
         
 del FspowParser

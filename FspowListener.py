@@ -179,12 +179,12 @@ class FspowListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by FspowParser#prints.
-    def enterPrints(self, ctx:FspowParser.PrintsContext):
+    # Enter a parse tree produced by FspowParser#length.
+    def enterLength(self, ctx:FspowParser.LengthContext):
         pass
 
-    # Exit a parse tree produced by FspowParser#prints.
-    def exitPrints(self, ctx:FspowParser.PrintsContext):
+    # Exit a parse tree produced by FspowParser#length.
+    def exitLength(self, ctx:FspowParser.LengthContext):
         pass
 
 
@@ -197,21 +197,21 @@ class FspowListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by FspowParser#prints.
+    def enterPrints(self, ctx:FspowParser.PrintsContext):
+        pass
+
+    # Exit a parse tree produced by FspowParser#prints.
+    def exitPrints(self, ctx:FspowParser.PrintsContext):
+        pass
+
+
     # Enter a parse tree produced by FspowParser#loop.
     def enterLoop(self, ctx:FspowParser.LoopContext):
         pass
 
     # Exit a parse tree produced by FspowParser#loop.
     def exitLoop(self, ctx:FspowParser.LoopContext):
-        pass
-
-
-    # Enter a parse tree produced by FspowParser#length.
-    def enterLength(self, ctx:FspowParser.LengthContext):
-        pass
-
-    # Exit a parse tree produced by FspowParser#length.
-    def exitLength(self, ctx:FspowParser.LengthContext):
         pass
 
 

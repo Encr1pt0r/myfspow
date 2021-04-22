@@ -104,8 +104,8 @@ class FspowVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by FspowParser#prints.
-    def visitPrints(self, ctx:FspowParser.PrintsContext):
+    # Visit a parse tree produced by FspowParser#length.
+    def visitLength(self, ctx:FspowParser.LengthContext):
         return self.visitChildren(ctx)
 
 
@@ -114,13 +114,13 @@ class FspowVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by FspowParser#loop.
-    def visitLoop(self, ctx:FspowParser.LoopContext):
+    # Visit a parse tree produced by FspowParser#prints.
+    def visitPrints(self, ctx:FspowParser.PrintsContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by FspowParser#length.
-    def visitLength(self, ctx:FspowParser.LengthContext):
+    # Visit a parse tree produced by FspowParser#loop.
+    def visitLoop(self, ctx:FspowParser.LoopContext):
         return self.visitChildren(ctx)
 
 

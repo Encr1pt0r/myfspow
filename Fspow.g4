@@ -53,7 +53,7 @@ rootSpecifier:
     ;
     
 numeric : 
-    label (operator label)*
+    label
     ;
 
 operator:
@@ -66,12 +66,8 @@ operator:
     '/'
     ;
 
-prints:
-    'print ' ID
-    |
-    'print ' ID '[' label ']'
-    |
-    'print ' STRING
+length:
+    'len(' ID ')'
     ;
 
 label:
@@ -80,12 +76,22 @@ label:
     ID
     ;
 
-loop:
-    'for ' ID ' in range(' expression '):' stat*
+prints:
+    'print ' ID
+    |
+    'print ' ID '[' ID ']'
+    |
+    'print ' ID '[' INTEGER ']'
+    |
+    'print ' STRING
+    |
+    'print ' length
     ;
 
-length:
-    ID '.length()'
+loop:
+    'for ' ID ' in range(' length ') {' stat* '}'
+    |
+    'for ' ID ' in range(' INTEGER ') {' stat* '}'
     ;
 
 ID: [a-zA-Z][a-zA-Z0-9]* ;

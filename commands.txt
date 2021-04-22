@@ -1,32 +1,47 @@
 // Basic maths variable statements
+print "---------------------------------------------"
+print "Basic maths:"
+print "---------------------------------------------"
 
 x = 5			
-x = x + 10
-x = x - 5
-x = x * 2
-x = x / 2
-x = x + 5 - 2
-
-// Playing with FileCollection
-
-wombats = FileCollection("wombats")
-print "The wombats collection:"
-print wombats
-
-// Now let's play with a Selector
-
-hairies = Selector(name("hairy")) 
-wombats.apply(hairies)
-wombats.apply(Selector(name("")))
-
-// Printing individual elements
-
-print wombats[0]
-print wombats[2]
 print x
 
-// Playing with loops (:
 
+// Playing with FileCollection
+wombats = FileCollection("wombats")
+print "---------------------------------------------"
+print "The wombats collection:"
+print "---------------------------------------------"
+print wombats
+
+
+// Now let's play with a Selector
+// This means that the wombats only show one file called hairy.jpg
+
+print "---------------------------------------------"
+print "Selectors would appear here"
+print "---------------------------------------------"
+//hairies = Selector(name("hairy")) 
+//wombats.apply(hairies)
+//print wombats
+
+// Printing individual elements
+print "---------------------------------------------"
+print "Individual elements"
+print "---------------------------------------------"
+print len(wombats)
+x = 50
+print x
+print wombats[3]
+
+// Playing with loops (:
+print "---------------------------------------------"
 print "Visiting each wombat in turn:"
-for w in range(wombats.length()): print wombats[w]
+print "---------------------------------------------"
+w = 0
+for w in range(len(wombats)) {
+    print wombats[w]
+}
+
+print w
 
