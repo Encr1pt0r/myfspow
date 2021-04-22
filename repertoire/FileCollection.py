@@ -140,7 +140,7 @@ class FileCollection:
             if it fails the test specified by filter, remove it
         """
         numberOfItems = len(self.content)
-        i = 0;
+        i = 0
         while i < numberOfItems:
             if filter.testPath(self.content[i]):
                 i += 1

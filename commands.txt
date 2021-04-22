@@ -21,9 +21,9 @@ print wombats
 print "---------------------------------------------"
 print "Selectors would appear here"
 print "---------------------------------------------"
-//hairies = Selector(name("hairy")) 
-//wombats.apply(hairies)
-//print wombats
+hairies = Selector(name("hairy")) 
+wombats.apply(hairies)
+print wombats
 
 // Printing individual elements
 print "---------------------------------------------"

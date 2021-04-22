@@ -117,12 +117,21 @@ class FspowVisitorUser(FspowVisitor):
         """
 
 #         todo: use retrieveVariable
-        fileCollectionIdentifier = str(ctx.getChild(0))
+        fileCollectionIdentifier = ctx.getChild(0).getText()
         if fileCollectionIdentifier in self.variablesTable:
             # apply selector
-            selector = self.visit(ctx.getChild(2))
-            if selector != None:
-                self.variablesTable[fileCollectionIdentifier].apply(selector)
+            selector = self.retrieveVariable(ctx.getChild(2).getText())
+            
+            # How could I get a list of Selectors?
+            # selector = []
+            # i = 2
+            # while ctx.getChild(i) != ")":
+            #     selector.append(self.visit(ctx.getChild(i)))
+            #     i = i + 1
+            if isinstance(selector, Selector):
+                updatedFc = self.variablesTable[fileCollectionIdentifier]
+                updatedFc.apply(selector)
+                self.variablesTable[fileCollectionIdentifier] = updatedFc
         else:
             print("visitFcApplySelector: File collection", fileCollectionIdentifier, "not found")
 #         for i in range(ctx.getChildCount()):
@@ -211,9 +220,16 @@ class FspowVisitorUser(FspowVisitor):
             3+  :   selectorType*
             2   :   ')'
         """
+
         # for i in range(ctx.getChildCount()):
         #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+
+        # Return selectors
+        sType = self.visit(ctx.getChild(1))
+#        print(sType)
+        newSelector = Selector(sType)
+#        print(newSelector.__str__())
+        return newSelector
 
 
     # Visit a parse tree produced by FspowParser#selectorType.
@@ -226,7 +242,7 @@ class FspowVisitorUser(FspowVisitor):
         """
         # for i in range(ctx.getChildCount()):
         #     print("%s:\t%d:\t%s" % (sys._getframe().f_code.co_name, i, ctx.getChild(i).getText()))
-        return self.visitChildren(ctx)
+        return ctx.getChild(1).getText()
 
 
     # Visit a parse tree produced by FspowParser#newFileCollection.
